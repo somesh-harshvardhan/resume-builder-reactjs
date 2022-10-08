@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Contact from './left-components/Contact';
 import Designation from './left-components/Designation';
+import Hobbies from './left-components/Hobbies';
 import Name from './left-components/Name';
 import Skills from './left-components/Skills';
 
@@ -18,6 +19,7 @@ const LeftComponent = () => {
      <Designation/>
      <Contact/>
      <Skills/>
+     <Hobbies/>
     </Container>
   )
 }

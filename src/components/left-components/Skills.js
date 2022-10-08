@@ -33,6 +33,7 @@ const SkillsWrapper = styled.div`
     color: white;
     font-size: 0.8rem;
     border-radius: 4px;
+    position: relative;
     & > div:nth-child(2) {
       margin-top: 5px;
     }
@@ -52,6 +53,12 @@ const SkillsWrapper = styled.div`
       border: 1px solid;
       border-radius: 4px;
       cursor: pointer;
+    }
+    .skill-input-wrapper-close{
+        position: absolute;
+        top: 4px;
+        right: 6px;
+        cursor: pointer;
     }
   }
 `;
@@ -136,6 +143,7 @@ const Skills = () => {
 
         {showInputBox && (
           <div className="skill-input-wrapper">
+           <div className="skill-input-wrapper-close" onClick={()=>setShowInputBox(false)}><RiCloseCircleLine fontSize={16}/></div> 
             <div>
               <label>Enter skill name :</label>
               <input

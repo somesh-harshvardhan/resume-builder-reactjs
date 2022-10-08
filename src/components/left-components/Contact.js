@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components';
+import { useFocus } from '../hooks/useFocus';
 
 const Details =styled.div`
 padding: 10px 20px;
@@ -29,18 +30,17 @@ word-break: break-all;
 }
 `
 const ContactItem = ({title,type,placeHolder})=>{
-  const [isFocused,setFocused] = useState(false);
+  const {isFocused,handleFocus} = useFocus();
   const [value,setValue] = useState(placeHolder);
-
   useEffect(()=>{
       if(!isFocused && value===""){
         setValue(placeHolder)
       }
       // eslint-disable-next-line
   },[isFocused])
-  return <Item onClick={()=>setFocused(true)} onBlur={()=>setFocused(false)}>
+  return <Item onClick={()=>handleFocus(true)} onBlur={()=>handleFocus(false)}>
       <p>{title} :</p>
-      {isFocused ? <input value={value} type={type} onChange={e=>setValue(e.target.value)}/> : <span>{value}</span>}
+      {isFocused ? <input autoFocus value={value} type={type} onChange={e=>setValue(e.target.value)}/> : <span>{value}</span>}
   </Item>
 }
 

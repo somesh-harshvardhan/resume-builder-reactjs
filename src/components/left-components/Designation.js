@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
+import { useFocus } from '../hooks/useFocus';
 
 const Header = styled.header`
 color: white;
@@ -21,7 +22,7 @@ input{
 }
 `
 const Designation = () => {
-    const [isFocused,setFocused] = useState(false);
+    const {isFocused,handleFocus} = useFocus();
     const [value,setValue]=useState('Enter your name')
     useEffect(()=>{
      if(!isFocused && value === ''){
@@ -30,9 +31,9 @@ const Designation = () => {
      // eslint-disable-next-line
     },[isFocused])
   return (
-    <Header onClick={()=>setFocused(true)} onBlur={()=>setFocused(false)}>
+    <Header onClick={()=>handleFocus(true)} onBlur={()=>handleFocus(false)}>
        {
-        isFocused ? <input type="text" value={value} onChange={e=>setValue(e.target.value)}/> : <div>{value}</div>
+        isFocused ? <input autoFocus type="text" value={value} onChange={e=>setValue(e.target.value)}/> : <div>{value}</div>
        }
     </Header>
   )
