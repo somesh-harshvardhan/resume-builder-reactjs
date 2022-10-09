@@ -21,7 +21,7 @@ const AddASection = styled.div`
 const SectionOptions = styled.dialog`
   width: 100%;
   min-height: 300px;
-  position: absolute;
+  position: relative;
   border: 1px solid #000;
   padding: 10px;
   .close-dialog {
