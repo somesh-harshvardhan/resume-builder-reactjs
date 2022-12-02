@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { isValidElement } from 'react'
 import styled from 'styled-components'
 
 const PillsContainer = styled.div`
@@ -19,11 +19,11 @@ color: white;
 border: 1px solid rgba(255,255,255,0.8);
 border-radius: 22px;
 `
-const PillsRender = ({data=[],cb=()=>{}}) => {
+const PillsRender = ({data=[],cb=()=>{},...rest}) => {
   return (
     <PillsContainer>
     {
-        data.map((item,indx)=><Pill key={item+indx}>{item}</Pill>)
+        data.map((Item,indx)=><Pill key={Item+indx}>{isValidElement(<Item/>) ? <Item index={indx} {...rest}/> : Item}</Pill>)
     }
     </PillsContainer>
   )

@@ -4,7 +4,7 @@ import { useFocus } from '../hooks/useFocus';
 
 const Header = styled.header`
 color: white;
-padding: 30px 20px;
+padding: 60px 20px;
 padding-bottom: 0;
 div{
     font-size: 2rem;

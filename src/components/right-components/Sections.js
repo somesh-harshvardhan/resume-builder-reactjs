@@ -6,6 +6,7 @@ import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { IoAddCircleOutline } from "react-icons/io5";
 import { CgClose } from "react-icons/cg";
+import Button from "../common/Button";
 const Container = styled.div``;
 const EducationContainer = styled.div`
   margin-top: 20px;
@@ -186,8 +187,8 @@ const Profile = (props) => {
   return (
     <>
       {" "}
-      <textarea value={value} onChange={(e) => setValue(e.target.value)} />
-      <button onClick={handleData}>Add</button>
+      <textarea value={value} onChange={(e) => setValue(e.target.value)}  style={{resize : 'none',width : "100%",minHeight : '200px'}}/>
+      <Button onClick={handleData} mTop='10px' p="4px 8px" pointer>Add</Button>
     </>
   );
 };
@@ -265,9 +266,9 @@ const Education = (props) => {
           </div>
         </div>
       </div>
-      <button className="add-buton" on onClick={handleAdd}>
+      <Button className="add-buton" mTop='10px' p="4px 8px" pointer onClick={handleAdd}>
         Add
-      </button>
+      </Button>
     </EducationContainer>
   );
 };
@@ -345,9 +346,9 @@ const Experience = (props) => {
           </div>
         </div>
       </div>
-      <button className="add-buton" on onClick={handleAdd}>
+      <Button className="add-buton" mTop='10px' p="4px 8px" pointer onClick={handleAdd}>
         Add
-      </button>
+      </Button>
     </ExperienceContainer>
   );
 };
@@ -459,7 +460,7 @@ const WorkProjects = (props) => {
           <button onClick={handleTech}>Submit</button>
         </div>
       </div>
-     <button onClick={handleAdd}>Add</button>
+     <Button onClick={handleAdd} m='10px 0 0 0' p="4px 8px" pointer>Add</Button>
     </WorkProjectsContainer>
   );
 };
@@ -524,7 +525,7 @@ const PersonalProjects = (props) => {
             <button onClick={handleTech}>Submit</button>
           </div>
         </div>
-       <button onClick={handleAdd}>Add</button>
+       <Button onClick={handleAdd} m='10px 0 0 0' p="4px 8px" pointer>Add</Button>
       </WorkProjectsContainer>
     );
   };
